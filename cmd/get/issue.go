@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 )
 
 // issueCmd represents the issue command
@@ -19,6 +20,9 @@ to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		cmd.Help()
 		fmt.Println("get issue called")
+		// add
+		fmt.Println(viper.GetString("JIRA_USERNAME"))
+		fmt.Println(viper.GetString("JIRA_TOKEN"))
 	},
 }
 

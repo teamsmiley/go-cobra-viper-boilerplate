@@ -6,6 +6,7 @@ package cmd
 
 import (
 	"fmt"
+	"mycli/cmd/configure"
 	"mycli/cmd/create"
 	"mycli/cmd/delete"
 	"mycli/cmd/edit"
@@ -59,6 +60,7 @@ func init() {
 	rootCmd.AddCommand(get.GetCmd)
 	rootCmd.AddCommand(edit.EditCmd)
 	rootCmd.AddCommand(delete.DeleteCmd)
+	rootCmd.AddCommand(configure.ConfigureCmd)
 
 }
 
@@ -74,7 +76,7 @@ func initConfig() {
 
 		// Search config in home directory with name ".mycli" (without extension).
 		viper.AddConfigPath(home)
-		viper.SetConfigType("yaml")
+		viper.SetConfigType("env")
 		viper.SetConfigName(".mycli")
 	}
 
